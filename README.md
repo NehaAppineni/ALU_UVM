@@ -20,26 +20,26 @@ sim/run.tcl         ->  Compile + simulate script
    5           SHL         result = a << (b & 7) \
    6           SHR         result = a >> (b & 7) 
 
-8-bit unsigned operands, overflow wraps 
+8-bit unsigned operands, overflow wraps \
 1-cycle registered latency with valid/ready handshake
 
 
 # UVM Components
      File                                 Role 
-`alu_seq_item           Transaction (a, b, op, exp_result, act_result) 
-`alu_directed_seq       Fixed corner-case stimulus 
-`alu_rand_seq           Randomized stimulus (length controlled by `ntxn`) 
-`alu_driver             Drives DUT pins, respects in_valid/in_ready 
-`alu_monitor            Samples output handshake, publishes to scoreboard 
-`alu_scoreboard         Pure reference model, compares expected vs actual 
-`alu_agent              Bundles sequencer + driver + monitor 
-`alu_env                Connects agent → scoreboard via analysis port 
-`alu_smoke_test         Runs directed sequence 
+`alu_seq_item           Transaction (a, b, op, exp_result, act_result) \
+`alu_directed_seq       Fixed corner-case stimulus \
+`alu_rand_seq           Randomized stimulus (length controlled by `ntxn`) \
+`alu_driver             Drives DUT pins, respects in_valid/in_ready \
+`alu_monitor            Samples output handshake, publishes to scoreboard \
+`alu_scoreboard         Pure reference model, compares expected vs actual \
+`alu_agent              Bundles sequencer + driver + monitor \
+`alu_env                Connects agent → scoreboard via analysis port \
+`alu_smoke_test         Runs directed sequence \
 `alu_rand_test          Runs random sequence 
 
 
 # How to Compile
-exec xvlog -sv -L uvm --timescale 1ns/1ps rtl/alu.sv tb/alu_if.sv tb/alu_pkg.sv top/alu_tb_top.sv
+exec xvlog -sv -L uvm --timescale 1ns/1ps rtl/alu.sv tb/alu_if.sv tb/alu_pkg.sv top/alu_tb_top.sv \
 exec xelab -L uvm -debug typical -top alu_tb_top -snapshot alu_tb
 
 
@@ -60,6 +60,6 @@ exec xsim alu_tb -R \
   -log results/rand_run.log
 
 # Tools
-- Vivado / XSim v2025.2
-- UVM 1.2 (built into XSim)
-- SystemVerilog
+- Vivado / XSim v2025.2 \
+- UVM 1.2 (built into XSim) \
+- SystemVerilog \
