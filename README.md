@@ -1,14 +1,27 @@
-## UVM ALU Agent – Vivado XSim
+# UVM ALU Agent – Vivado XSim
+
 A UVM-based verification environment for an 8-bit ALU, simulated using Vivado XSim (v2025.2). Implements a full UVM agent with driver, monitor, scoreboard, directed and random sequences.
 
+---
 
 ## Project Structure
-rtl/alu.sv          ->  8-bit ALU DUT (registered handshake) \
-tb/alu_if.sv        ->  SystemVerilog interface (modports: dut, drv, mon) \
-tb/alu_pkg.sv       ->  UVM package (all classes in compile order) \
-top/alu_tb_top.sv   ->  Top level testbench (clock, reset, run_test) \
-sim/run.tcl         ->  Compile + simulate script 
 
+```
+├── rtl/
+│   └── alu.sv               # 8-bit ALU DUT (registered handshake)
+├── tb/
+│   ├── alu_if.sv            # SystemVerilog interface (modports: dut, drv, mon)
+│   └── alu_pkg.sv           # UVM package (all classes in compile order)
+├── top/
+│   └── alu_tb_top.sv        # Top-level testbench (clock, reset, run_test)
+├── sim/
+│   └── run.tcl              # Compile + simulate script
+├── results/                 # Logs and waveforms (gitignored)
+└── docs/
+    └── F1-UVM_ALU_Agent_XSim_Documentation.docx
+```
+
+---
 
 ## ALU Specification
 
@@ -42,33 +55,44 @@ sim/run.tcl         ->  Compile + simulate script
 | `alu_smoke_test` | Runs directed sequence |
 | `alu_rand_test` | Runs random sequence |
 
+---
 
 ## How to Compile
-exec xvlog -sv -L uvm --timescale 1ns/1ps rtl/alu.sv tb/alu_if.sv tb/alu_pkg.sv top/alu_tb_top.sv \
-exec xelab -L uvm -debug typical -top alu_tb_top -snapshot alu_tb
 
+```tcl
+exec xvlog -sv -L uvm --timescale 1ns/1ps \
+  rtl/alu.sv tb/alu_if.sv tb/alu_pkg.sv top/alu_tb_top.sv
+
+exec xelab -L uvm -debug typical -top alu_tb_top -snapshot alu_tb
+```
+
+---
 
 ## How to Run
-Smoke test (directed):
+
+**Smoke test (directed):**
+```tcl
 exec xsim alu_tb -R \
   -testplusarg UVM_TESTNAME=alu_smoke_test \
   -testplusarg UVM_VERBOSITY=UVM_MEDIUM \
   -sv_seed 12345 \
   -log results/smoke_run.log
+```
 
-Random test:
+**Random test:**
+```tcl
 exec xsim alu_tb -R \
   -testplusarg UVM_TESTNAME=alu_rand_test \
   -testplusarg UVM_VERBOSITY=UVM_LOW \
   -testplusarg ntxn=200 \
   -sv_seed 999 \
   -log results/rand_run.log
+```
+
+---
 
 ## Tools
-- Vivado / XSim v2025.2 \
-- UVM 1.2 (built into XSim) \
-- SystemVerilog \
 
-
-
-
+- Vivado / XSim v2025.2
+- UVM 1.2 (built into XSim)
+- SystemVerilog
