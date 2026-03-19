@@ -7,18 +7,12 @@ A UVM-based verification environment for an 8-bit ALU, simulated using Vivado XS
 ## Project Structure
 
 ```
-├── rtl/
-│   └── alu.sv               # 8-bit ALU DUT (registered handshake)
-├── tb/
-│   ├── alu_if.sv            # SystemVerilog interface (modports: dut, drv, mon)
-│   └── alu_pkg.sv           # UVM package (all classes in compile order)
-├── top/
-│   └── alu_tb_top.sv        # Top-level testbench (clock, reset, run_test)
-├── sim/
-│   └── run.tcl              # Compile + simulate script
-├── results/                 # Logs and waveforms (gitignored)
-└── docs/
-    └── F1-UVM_ALU_Agent_XSim_Documentation.docx
+rtl/alu.sv               # 8-bit ALU DUT (registered handshake)
+tb/alu_if.sv            # SystemVerilog interface (modports: dut, drv, mon)
+tb/alu_pkg.sv           # UVM package (all classes in compile order)
+top/alu_tb_top.sv        # Top-level testbench (clock, reset, run_test)
+sim/run.tcl              # Compile + simulate script
+
 ```
 
 ---
@@ -35,7 +29,7 @@ A UVM-based verification environment for an 8-bit ALU, simulated using Vivado XS
 | 5 | SHL | result = a << (b & 7) |
 | 6 | SHR | result = a >> (b & 7) |
 
-- 8-bit unsigned operands, overflow wraps (modulo 2⁸)
+- 8-bit unsigned operands, overflow wraps 
 - 1-cycle registered latency with valid/ready handshake
 
 ---
