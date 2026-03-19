@@ -7,17 +7,17 @@ rtl/alu.sv          ->  8-bit ALU DUT (registered handshake) \
 tb/alu_if.sv        ->  SystemVerilog interface (modports: dut, drv, mon) \
 tb/alu_pkg.sv       ->  UVM package (all classes in compile order) \
 top/alu_tb_top.sv   ->  Top level testbench (clock, reset, run_test) \
-sim/run.tcl         ->  Compile + simulate script \
+sim/run.tcl         ->  Compile + simulate script 
 
 
 # ALU Specification
- Opcode     Operation      Description 
-   0           ADD         result = a + b 
-   1           SUB         result = a - b 
-   2           AND         result = a & b 
-   3           OR          result = a | b 
-   4           XOR         result = a ^ b 
-   5           SHL         result = a << (b & 7) 
+ Opcode     Operation      Description \
+   0           ADD         result = a + b \
+   1           SUB         result = a - b \
+   2           AND         result = a & b \
+   3           OR          result = a | b \
+   4           XOR         result = a ^ b \
+   5           SHL         result = a << (b & 7) \
    6           SHR         result = a >> (b & 7) 
 
 8-bit unsigned operands, overflow wraps 
