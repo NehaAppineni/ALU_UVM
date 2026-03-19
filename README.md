@@ -11,8 +11,8 @@ sim/run.tcl         ->  Compile + simulate script
 
 
 # ALU Specification
- Opcode     Operation      Description \
-   0           ADD         result = a + b \
+ Opcode   |  Operation   |   Description \
+   0    |       ADD      |   result = a + b \
    1           SUB         result = a - b \
    2           AND         result = a & b \
    3           OR          result = a | b \
