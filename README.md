@@ -1,13 +1,13 @@
 # UVM ALU Agent – Vivado XSim
--> A UVM-based verification environment for an 8-bit ALU, simulated using Vivado XSim (v2025.2). Implements a full UVM agent with driver, monitor, scoreboard, directed and random sequences.
+A UVM-based verification environment for an 8-bit ALU, simulated using Vivado XSim (v2025.2). Implements a full UVM agent with driver, monitor, scoreboard, directed and random sequences.
 
 
 # Project Structure
-rtl/alu.sv          ->  8-bit ALU DUT (registered handshake)
-tb/alu_if.sv        ->  SystemVerilog interface (modports: dut, drv, mon)
-tb/alu_pkg.sv       ->  UVM package (all classes in compile order)
-top/alu_tb_top.sv   ->  Top level testbench (clock, reset, run_test)
-sim/run.tcl         ->  Compile + simulate script
+rtl/alu.sv          ->  8-bit ALU DUT (registered handshake) \
+tb/alu_if.sv        ->  SystemVerilog interface (modports: dut, drv, mon) \
+tb/alu_pkg.sv       ->  UVM package (all classes in compile order) \
+top/alu_tb_top.sv   ->  Top level testbench (clock, reset, run_test) \
+sim/run.tcl         ->  Compile + simulate script \
 
 
 # ALU Specification
