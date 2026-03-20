@@ -40,7 +40,7 @@ sim/run.tcl              # Compile + simulate script
 |------|------|
 | `alu_seq_item` | Transaction (a, b, op, exp_result, act_result) |
 | `alu_directed_seq` | Fixed corner-case stimulus |
-| `alu_rand_seq` | Randomized stimulus (length controlled by `ntxn`) |
+| `alu_random_seq` | Randomized stimulus (length controlled by `ntxn`) |
 | `alu_driver` | Drives DUT pins, respects in_valid/in_ready |
 | `alu_monitor` | Samples output handshake, publishes to scoreboard |
 | `alu_scoreboard` | Pure reference model, compares expected vs actual |
